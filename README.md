@@ -123,19 +123,19 @@ sudo ./scripts/audit.sh
 ## Key Security Decisions (and Why)
 
 **SSH key-only authentication**
-Password-based SSH auth is disabled entirely. Every failed password attempt in your logs is a bot — there are no humans typing wrong passwords at 3 a.m. Removing the attack surface entirely is cleaner than rate-limiting it.
+Password-based SSH auth is disabled entirely. Every failed password attempt in your logs is a bot - there are no humans typing wrong passwords at 3 a.m. Removing the attack surface entirely is cleaner than rate-limiting it.
 
 **UFW deny-by-default**
-Only ports 22, 80, and 443 are open. Everything else is silently dropped. This isn't just good security — it means your logs stay readable. Noise-free logs are logs you'll actually check.
+Only ports 22, 80, and 443 are open. Everything else is silently dropped. This isn't just good security - it means your logs stay readable. Noise-free logs are logs you'll actually check.
 
 **Blocked credential paths in Nginx**
-A dedicated `location` block returns 404 for every common credential-hunting path (`.env`, `.aws`, `.git`, `credentials`, `secrets`, `xmlrpc.php`, etc.). Bots move on immediately. No application code is ever reached for these requests — they die at the web server.
+A dedicated `location` block returns 404 for every common credential-hunting path (`.env`, `.aws`, `.git`, `credentials`, `secrets`, `xmlrpc.php`, etc.). Bots move on immediately. No application code is ever reached for these requests - they die at the web server.
 
 **Security headers**
 `X-Frame-Options`, `X-Content-Type-Options`, `X-XSS-Protection`, `Referrer-Policy`, and `server_tokens off` are set globally. These stop a category of attacks and improve your security posture score (check with securityheaders.com).
 
 **Fail2Ban tuned, not default**
-The default Fail2Ban config is too permissive — it allows too many failures before banning, and bans for too short a time. The jail config in this repo is tuned for a production server that isn't running a user authentication service: fail faster, ban harder, ban longer.
+The default Fail2Ban config is too permissive - it allows too many failures before banning, and bans for too short a time. The jail config in this repo is tuned for a production server that isn't running a user authentication service: fail faster, ban harder, ban longer.
 
 **Unattended upgrades enabled**
 The most common attack vector on a VPS after credential theft is an unpatched CVE. Automatic security updates mean you're not relying on someone remembering to run `apt upgrade`. Set it, test it, forget it. Review the upgrade log monthly.
@@ -170,13 +170,13 @@ Tested on:
 
 ## Contributing
 
-Issues and PRs welcome. If you've observed attack patterns not in `ATTACK_LOG.md`, please open an issue — keeping that list current helps everyone.
+Issues and PRs welcome. If you've observed attack patterns not in `ATTACK_LOG.md`, please open an issue - keeping that list current helps everyone.
 
 ---
 
 ## License
 
-MIT License — use freely, adapt to your setup, no warranty implied.
+MIT License - use freely, adapt to your setup, no warranty implied.
 
 ---
 
