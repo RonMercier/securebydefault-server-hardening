@@ -4,6 +4,8 @@
 
 Built and battle-tested on the actual infrastructure behind [SecureByDefault.io](https://securebydefault.io) - a live Ubuntu 24 server on Linode that was probed by bots within 24 hours of going live. This isn't theoretical hardening. It's the exact configuration that survived real automated attacks from day one.
 
+![securebydefault-server-hardening](docs/banner.png)
+
 > 📖 **Read the full story:** [My Server Was Attacked Within 24 Hours of Going Live - Here's What the Logs Showed](https://securebydefault.io/blog/server-attacked-24-hours-live/)
 
 ---
