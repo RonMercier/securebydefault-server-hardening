@@ -2,9 +2,9 @@
 
 **Production-grade Linux server hardening baseline for cloud VPS deployments.**
 
-Built and battle-tested on the actual infrastructure behind [SecureByDefault.io](https://securebydefault.io) — a live Ubuntu 24 server on Linode that was probed by bots within 24 hours of going live. This isn't theoretical hardening. It's the exact configuration that survived real automated attacks from day one.
+Built and battle-tested on the actual infrastructure behind [SecureByDefault.io](https://securebydefault.io) - a live Ubuntu 24 server on Linode that was probed by bots within 24 hours of going live. This isn't theoretical hardening. It's the exact configuration that survived real automated attacks from day one.
 
-> 📖 **Read the full story:** [My Server Was Attacked Within 24 Hours of Going Live — Here's What the Logs Showed](https://securebydefault.io/blog/server-attacked-24-hours-live/)
+> 📖 **Read the full story:** [My Server Was Attacked Within 24 Hours of Going Live - Here's What the Logs Showed](https://securebydefault.io/blog/server-attacked-24-hours-live/)
 
 ---
 
@@ -24,7 +24,7 @@ Built and battle-tested on the actual infrastructure behind [SecureByDefault.io]
 
 ## The Attack That Prompted This
 
-Within 24 hours of going live — no published links, no public traffic — bots were probing the server for:
+Within 24 hours of going live - no published links, no public traffic - bots were probing the server for:
 
 ```
 /.aws/credentials
