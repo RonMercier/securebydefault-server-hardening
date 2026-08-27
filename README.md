@@ -184,6 +184,6 @@ MIT License - use freely, adapt to your setup, no warranty implied.
 
 ## About
 
-Built by **Ron Mercier** — Cloud & Cybersecurity Engineer. DDoS mitigation and incident response at Akamai Technologies. MSc Cybersecurity, CySA+, PenTest+, AWS CCP.
+Built by **Ron Mercier** - Cloud & Cybersecurity Engineer. DDoS mitigation and incident response at Akamai Technologies. MSc Cybersecurity, CySA+, PenTest+, AWS CCP.
 
 🌐 [securebydefault.io](https://securebydefault.io) · 📬 [Newsletter](https://newsletter.securebydefault.io) · 💼 [LinkedIn](https://www.linkedin.com/in/ron-mercier)
