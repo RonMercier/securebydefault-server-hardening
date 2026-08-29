@@ -1,5 +1,5 @@
 #!/bin/bash
-# securebydefault-server-hardening — scripts/harden.sh
+# securebydefault-server-hardening - scripts/harden.sh
 #
 # Automated hardening script for Ubuntu 24 LTS cloud VPS.
 # Run as root or with sudo.
@@ -12,7 +12,7 @@
 #   5. Enables unattended security updates
 #   6. Installs and starts Fail2Ban
 #
-# What it does NOT do (configure manually — see README):
+# What it does NOT do (configure manually - see README):
 #   - Nginx config (site-specific)
 #   - SSL/TLS certificates (use certbot)
 #   - WordPress-specific hardening
@@ -41,7 +41,7 @@ fi
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "  SecureByDefault — Server Hardening Script"
+echo "  SecureByDefault - Server Hardening Script"
 echo "  github.com/RonMercier/securebydefault-server-hardening"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
@@ -113,7 +113,7 @@ log "Applying kernel hardening parameters..."
 SYSCTL_FILE="/etc/sysctl.d/99-hardening.conf"
 
 cat > "$SYSCTL_FILE" << 'EOF'
-# SecureByDefault — Kernel hardening parameters
+# SecureByDefault - Kernel hardening parameters
 # See: https://github.com/RonMercier/securebydefault-server-hardening
 
 # ── Network ──────────────────────────────────────────────────
@@ -191,7 +191,7 @@ log "Configuring Fail2Ban..."
 systemctl enable fail2ban
 systemctl start fail2ban
 ok "Fail2Ban enabled and started"
-warn "Apply jail.local from this repo manually — see README for Nginx-specific jails"
+warn "Apply jail.local from this repo manually - see README for Nginx-specific jails"
 
 # ── Summary ───────────────────────────────────────────────────
 echo ""
