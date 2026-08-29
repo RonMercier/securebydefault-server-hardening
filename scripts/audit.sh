@@ -1,7 +1,7 @@
 #!/bin/bash
-# securebydefault-server-hardening — scripts/audit.sh
+# securebydefault-server-hardening - scripts/audit.sh
 #
-# Quick security audit script — verifies the hardening baseline
+# Quick security audit script - verifies the hardening baseline
 # is in place and highlights anything that needs attention.
 #
 # Usage:
@@ -32,7 +32,7 @@ fi
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "  SecureByDefault — Security Audit"
+echo "  SecureByDefault - Security Audit"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 # ── UFW ───────────────────────────────────────────────────────
@@ -67,19 +67,19 @@ section "SSH Hardening"
 if grep -q "^PermitRootLogin no" /etc/ssh/sshd_config; then
     pass "Root login disabled"
 else
-    fail "Root login is NOT disabled — check PermitRootLogin"
+    fail "Root login is NOT disabled - check PermitRootLogin"
 fi
 
 if grep -q "^PasswordAuthentication no" /etc/ssh/sshd_config; then
     pass "Password authentication disabled"
 else
-    warn "Password authentication may be enabled — verify PasswordAuthentication no"
+    warn "Password authentication may be enabled - verify PasswordAuthentication no"
 fi
 
 if grep -q "^MaxAuthTries 3" /etc/ssh/sshd_config; then
     pass "MaxAuthTries set to 3"
 else
-    warn "MaxAuthTries not hardened — consider setting to 3"
+    warn "MaxAuthTries not hardened - consider setting to 3"
 fi
 
 # ── Fail2Ban ──────────────────────────────────────────────────
@@ -95,7 +95,7 @@ if fail2ban-client status sshd &>/dev/null; then
     BANNED=$(fail2ban-client status sshd | grep "Currently banned" | awk '{print $NF}')
     pass "SSH jail active (currently banned: $BANNED IPs)"
 else
-    warn "SSH jail not configured — apply jail.local from this repo"
+    warn "SSH jail not configured - apply jail.local from this repo"
 fi
 
 # ── Nginx ─────────────────────────────────────────────────────
@@ -110,7 +110,7 @@ fi
 if nginx -t 2>&1 | grep -q "syntax is ok"; then
     pass "Nginx config syntax is valid"
 else
-    fail "Nginx config has syntax errors — run: sudo nginx -t"
+    fail "Nginx config has syntax errors - run: sudo nginx -t"
 fi
 
 # Check security headers
@@ -123,7 +123,7 @@ fi
 if nginx -T 2>/dev/null | grep -q "server_tokens off"; then
     pass "server_tokens off (version disclosure disabled)"
 else
-    warn "server_tokens not set to off — consider adding it"
+    warn "server_tokens not set to off - consider adding it"
 fi
 
 # ── Unattended upgrades ───────────────────────────────────────
@@ -138,7 +138,7 @@ fi
 if [ -f /etc/apt/apt.conf.d/20auto-upgrades ]; then
     pass "Auto-upgrade config present"
 else
-    warn "Auto-upgrade config not found — run harden.sh or set up manually"
+    warn "Auto-upgrade config not found - run harden.sh or set up manually"
 fi
 
 # ── Open ports ────────────────────────────────────────────────
@@ -158,7 +158,7 @@ echo -e "  Results: ${GREEN}$PASS passed${NC}  ${YELLOW}$WARN warnings${NC}  ${R
 if [ "$FAIL" -gt 0 ]; then
     echo -e "  ${RED}Address the FAIL items before exposing this server to production.${NC}"
 elif [ "$WARN" -gt 0 ]; then
-    echo -e "  ${YELLOW}Review the WARN items — they may indicate incomplete hardening.${NC}"
+    echo -e "  ${YELLOW}Review the WARN items - they may indicate incomplete hardening.${NC}"
 else
     echo -e "  ${GREEN}Baseline hardening checks passed.${NC}"
 fi
