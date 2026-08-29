@@ -1,4 +1,4 @@
-# securebydefault-server-hardening — fail2ban/jail.local
+# securebydefault-server-hardening - fail2ban/jail.local
 #
 # Tuned Fail2Ban configuration for a production cloud VPS.
 # Stricter than defaults: fewer allowed failures, longer bans,
@@ -8,7 +8,7 @@
 # Then: sudo systemctl restart fail2ban
 
 [DEFAULT]
-# Ban for 1 hour on first offense (default is 10 minutes — too short)
+# Ban for 1 hour on first offense (default is 10 minutes - too short)
 bantime  = 3600
 
 # Window in which failures are counted
@@ -17,7 +17,7 @@ findtime = 600
 # Allow only 3 failures before banning (default is 5)
 maxretry = 3
 
-# Email notifications — set your address if you want alerts
+# Email notifications - set your address if you want alerts
 # destemail = you@yourdomain.com
 # sender    = fail2ban@yourdomain.com
 # action    = %(action_mwl)s
@@ -25,7 +25,7 @@ maxretry = 3
 # Use ufw for banning (matches our firewall setup)
 banaction = ufw
 
-# ── SSH ───────────────────────────────────────────────────────
+# ── SSH ──────────────────────────────────────────────────────
 [sshd]
 enabled  = true
 port     = ssh
@@ -33,9 +33,9 @@ filter   = sshd
 logpath  = /var/log/auth.log
 maxretry = 3
 bantime  = 86400
-# 24-hour ban for SSH failures — bots rarely retry after this
+# 24-hour ban for SSH failures - bots rarely retry after this
 
-# ── NGINX: too many requests ──────────────────────────────────
+# ── NGINX: too many requests ─────────────────────────────────
 [nginx-req-limit]
 enabled  = true
 filter   = nginx-req-limit
@@ -45,7 +45,7 @@ bantime  = 3600
 findtime = 300
 
 # ── NGINX: 404 flood (credential hunting) ────────────────────
-# Bans IPs that hit too many 404s — catches .env hunters
+# Bans IPs that hit too many 404s - catches .env hunters
 [nginx-404]
 enabled  = true
 port     = http,https
