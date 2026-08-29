@@ -1,4 +1,4 @@
-# Attack Log — Real Observations Post-Launch
+# Attack Log - Real Observations Post-Launch
 
 This documents actual attack patterns observed on a fresh Ubuntu 24 cloud
 server within the first 24–72 hours of going live. No links published.
@@ -10,17 +10,17 @@ No traffic sent. The IP was discovered by automated scanners within hours.
 
 ## Timeline
 
-**T+0h** — Server deployed, DNS configured, SSL issued. No published links.
+**T+0h** - Server deployed, DNS configured, SSL issued. No published links.
 
-**T+24h** — First review of Nginx error logs. Multiple IPs already probing.
+**T+24h** - First review of Nginx error logs. Multiple IPs already probing.
 
-**T+72h** — Pattern analysis complete. All probes blocked. Zero successful access.
+**T+72h** - Pattern analysis complete. All probes blocked. Zero successful access.
 
 ---
 
 ## Probe Categories Observed
 
-### Category 1 — Cloud Credential Hunting (Most Common)
+### Category 1 - Cloud Credential Hunting (Most Common)
 
 These were the most frequent probes. Automated bots systematically
 checking every common location where cloud credentials might be exposed.
@@ -52,7 +52,7 @@ application code is reached.
 
 ---
 
-### Category 2 — WordPress / CMS Exploits
+### Category 2 - WordPress / CMS Exploits
 
 Even without WordPress installed at the domain root, bots probe for it.
 
@@ -74,7 +74,7 @@ server resources.
 
 ---
 
-### Category 3 — Admin Panel Discovery
+### Category 3 - Admin Panel Discovery
 
 ```
 GET /admin
@@ -92,7 +92,7 @@ GET /solr/admin/
 
 ---
 
-### Category 4 — Service Fingerprinting
+### Category 4 - Service Fingerprinting
 
 Bots trying to identify what's running before tailoring their attack.
 
@@ -110,7 +110,7 @@ in headers) and explicit deny blocks.
 
 ---
 
-### Category 5 — Backup and Source File Hunting
+### Category 5 - Backup and Source File Hunting
 
 ```
 GET /backup.sql
@@ -134,7 +134,7 @@ and similar. File extension deny blocks catch backup archives.
 
 ---
 
-### Category 6 — Miscellaneous Probes
+### Category 6 - Miscellaneous Probes
 
 ```
 GET /robots.txt          (legitimate + scrapers)
@@ -147,7 +147,7 @@ GET /clientaccesspolicy.xml
 
 **Notes:** `robots.txt` and `favicon.ico` requests from scanners are
 expected and harmless. `security.txt` is a legitimate RFC 9116 request
-from security researchers — consider adding one.
+from security researchers - consider adding one.
 
 ---
 
