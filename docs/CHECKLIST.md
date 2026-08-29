@@ -49,7 +49,7 @@ Everything in this list maps to configs in this repository.
 - [ ] Fail2Ban installed and running (`systemctl status fail2ban`)
 - [ ] SSH jail active (`fail2ban-client status sshd`)
 - [ ] Nginx jails configured (apply `jail.local` from this repo)
-- [ ] Ban time tuned (default 10min is too short — use 1hr minimum)
+- [ ] Ban time tuned (default 10min is too short - use 1hr minimum)
 
 ## System
 
@@ -60,11 +60,11 @@ Everything in this list maps to configs in this repository.
 
 ## Verification
 
-- [ ] `scripts/audit.sh` run — no FAIL items
-- [ ] Try accessing server by raw IP (not domain) — confirm no unexpected response
-- [ ] Try accessing `yourdomain.com/.env` — confirm 404 response
-- [ ] Try accessing `yourdomain.com/.aws/credentials` — confirm 404 response
-- [ ] Try accessing `yourdomain.com/wp-login.php` — confirm 404 response
+- [ ] `scripts/audit.sh` run - no FAIL items
+- [ ] Try accessing server by raw IP (not domain) - confirm no unexpected response
+- [ ] Try accessing `yourdomain.com/.env` - confirm 404 response
+- [ ] Try accessing `yourdomain.com/.aws/credentials` - confirm 404 response
+- [ ] Try accessing `yourdomain.com/wp-login.php` - confirm 404 response
 - [ ] Check open ports from outside: `nmap -sV yourdomain.com`
 
 ---
